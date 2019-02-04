@@ -9,6 +9,7 @@
   header {
     line-height: 4;
     border-bottom: solid 2px lightblue;
+    background-color: white;
   }
   .title {
     border-top: solid 3px #85ce9e;

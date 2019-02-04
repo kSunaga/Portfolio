@@ -12,7 +12,7 @@
 
 <style scoped>
   footer {
-    background-color: lightgray;
+    border-top: solid 3px #85ce9e;
     line-height: 3;
   }
 </style>
