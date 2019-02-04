@@ -3,11 +3,13 @@
     <div class="head-img">
       <p> kSunaga's Portfolio</p>
     </div>
-    <div class="content">
-      <div class="self-introduction">
+    <div class="content row">
+      <div class="col-4"></div>
+      <div class="self-introduction col-4">
         <h2>自己紹介</h2>
-        <p>初めまして！<br>サーバサイドエンジニアのkSunagaと申します。<br>2018年新卒のエンジニア１年生です！</p>
+        <p>初めまして！<br>サーバサイドエンジニアのkSunagaと申します。<br>2018年新卒のエンジニア１年生です！<br>写真嫌いなので自分の写真はありません笑</p>
       </div>
+      <div class="col-4"></div>
     </div>
   </div>
 </template>
@@ -35,7 +37,15 @@
   .content {
     margin-top: 3%;
     text-align: center;
-    padding-bottom: 1000px;
+  }
+
+  .self-introduction {
+    border: 3px solid brown;
+  }
+
+  .self-introduction p{
+    margin-top: 25px;
+
   }
 
 
