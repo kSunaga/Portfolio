@@ -2,13 +2,13 @@
   <header class="sticky-top row">
     <div class="col-5"></div>
     <div class="title col-3">
-      <p>kSunaga's portfolio</p>
+      <router-link to="/"><p>kSunaga's portfolio</p></router-link>
     </div>
     <div class="link col-4">
-      <p>Home</p>
-      <p>Skills</p>
-      <p>Products</p>
-      <p>Contact</p>
+      <p><router-link to="/">Home</router-link></p>
+      <p><router-link to="skills">Skills</router-link></p>
+      <p><router-link to="products">Products</router-link></p>
+      <p><router-link to="contact">Contact</router-link></p>
     </div>
   </header>
 </template>
