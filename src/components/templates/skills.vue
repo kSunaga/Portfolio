@@ -5,55 +5,56 @@
     </div>
     <div class="cards">
       <div class="language">
-        <p>言語</p>
+        <p>language</p>
         <div class="card-box">
           <transition appear>
-            <div class="skill-card">
+            <div class="skill-card ruby">
               <p>Ruby</p>
             </div>
           </transition>
           <transition appear>
-            <div class="skill-card php">
-              <p>PHP</p>
+            <div class="skill-card js">
+              <p>Javascript</p>
             </div>
           </transition>
-          <div class="skill-card">
-            <p>AWS</p>
+          <div class="skill-card html">
+            <p>HTML</p>
           </div>
-          <div class="skill-card">
-            <p>card</p>
+          <div class="skill-card css">
+            <p>CSS</p>
           </div>
-        </div>
-        <div class="card-box">
-          <div class="skill-card">
-            <p>Ruby</p>
+          <div class="skill-card gas">
+            <p>GAS</p>
           </div>
-          <div class="skill-card">
+          <div class="skill-card php">
             <p>PHP</p>
-          </div>
-          <div class="skill-card">
-            <p>AWS</p>
-          </div>
-          <div class="skill-card">
-            <p>card</p>
           </div>
         </div>
       </div>
       <div class="framework">
-        <p>フレームワーク</p>
+        <p>framework</p>
         <div class="card-box">
-          <div class="skill-card">
-            <p>card</p>
+          <div class="skill-card ror">
+            <p>Ruby on Rails</p>
           </div>
-          <div class="skill-card">
-            <p>card</p>
+          <div class="skill-card sinatra">
+            <p>Sinatra</p>
           </div>
-          <div class="skill-card">
-            <p>card</p>
+          <div class="skill-card vue">
+            <p>Vue.js</p>
           </div>
-          <div class="skill-card">
-            <p>card</p>
-          </div>
+        </div>
+      </div>
+      <div class="infra">
+        <p>infractuer</p>
+        <div class="skill-card ec2">
+          <p>EC2</p>
+        </div>
+        <div class="skill-card s3">
+          <p>S3</p>
+        </div>
+        <div class="skill-card lambda">
+          <p>Lambda</p>
         </div>
       </div>
     </div>
@@ -64,14 +65,21 @@
 </script>
 
 <style scoped>
+  .skill-card p {
+    color: white;
+  }
   .title {
     text-align: center;
+    margin-top: 5%;
   }
+
   .cards {
     text-align: center;
   }
+
+  .cards
+
   .skill-card {
-    border: 1px solid red;
     width: 20%;
     display: inline-block;
     text-align: center;
@@ -79,9 +87,12 @@
     margin-bottom: 50px;
     height: 50px;
   }
+
   .skill-card:hover {
     height: 200px;
+    transition-delay: 0.5s;
   }
+
   .v-enter-active, .v-leave-active {
     transition: all 3s;
   }
@@ -91,8 +102,52 @@
     transform: translateX(-60px);
   }
 
-  .php {
+  .ruby {
+    background-color: red;
   }
 
+  .php {
+    background-color: navy;
+  }
+
+  .html {
+    background-color: orange;
+  }
+
+  .css {
+    background-color: blue;
+  }
+
+  .gas {
+    background-color: darkcyan;
+  }
+
+  .js {
+    background-color: yellowgreen;
+  }
+
+  .ror {
+    background-color: red;
+  }
+
+  .vue {
+    background-color: green;
+  }
+
+  .ec2 {
+    background-color: orangered;
+  }
+
+  .s3 {
+    background-color: red;
+  }
+
+  .lambda {
+    background-color: darkorange;
+  }
+
+  .sinatra {
+    background-color: gray;
+  }
 
 </style>
