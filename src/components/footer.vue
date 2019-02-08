@@ -17,5 +17,6 @@
     padding-right: 5%;
     line-height: 3;
     text-align: right;
+    background-color: white;
   }
 </style>
