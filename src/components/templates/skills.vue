@@ -8,8 +8,13 @@
         <p>language</p>
         <div class="card-box">
           <transition appear>
-            <div class="skill-card ruby">
-              <p>Ruby</p>
+            <div class="skill-card">
+              <div class="ruby">
+                <p class="skill-title">Ruby</p>
+                <div class="description">
+                  <p>説明</p>
+                </div>
+              </div>
             </div>
           </transition>
           <transition appear>
@@ -68,16 +73,19 @@
   .skill-card p {
     color: white;
   }
+
   .title {
     text-align: center;
     margin-top: 5%;
   }
 
+  .ruby {
+    border: 1px solid red;
+  }
+
   .cards {
     text-align: center;
   }
-
-  .cards
 
   .skill-card {
     width: 20%;
@@ -85,13 +93,13 @@
     text-align: center;
     margin: 10px;
     margin-bottom: 50px;
-    height: 50px;
   }
 
   .skill-card:hover {
     height: 200px;
     transition-delay: 0.5s;
   }
+
 
   .v-enter-active, .v-leave-active {
     transition: all 3s;
@@ -102,7 +110,7 @@
     transform: translateX(-60px);
   }
 
-  .ruby {
+  .skill-title {
     background-color: red;
   }
 
