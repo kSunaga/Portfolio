@@ -7,10 +7,14 @@ import Bootstrap from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import titleLabel from './components/atoms/titleLabel.vue'
+
 Vue.use(Bootstrap);
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false
+
+Vue.component('title-label', titleLabel)
 
 var router = new VueRouter({
   routes: routes
