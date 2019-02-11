@@ -2,7 +2,7 @@
   <div class="card">
     <img class="card-img-top" :src="image_url">
     <div class="card-body">
-      <a href="https://www.ksunaga-portfolio.com/"><h5>{{ title }}</h5></a>
+      <a :href="url"><h5>{{ title }}</h5></a>
       <p>{{ description }}</p>
     </div>
   </div>
@@ -13,7 +13,8 @@
     props: {
       image_url: String,
       title: String,
-      description: String
+      description: String,
+      url: String
     }
   }
 </script>
