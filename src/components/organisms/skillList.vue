@@ -2,15 +2,15 @@
   <div class="card-box">
     <div class="language">
       <p>language</p>
-      <skill-card :name="language['name']" :color="language['color']" :description="language['description']" v-for="language in languages" :key="language.id"></skill-card>
+      <skill-card :name="language['name']" :color="language['color']" :description="language['description']" :date="calcWorkExperience(language['first_experience'])" v-for="language in languages" :key="language.id"></skill-card>
     </div>
     <div class="framework">
       <p>framework</p>
-      <skill-card :name="framework['name']" :color="framework['color']" :description="framework['description']" v-for="framework in frameworks" :key="framework.id"></skill-card>
+      <skill-card :name="framework['name']" :color="framework['color']" :description="framework['description']" :date="calcWorkExperience(framework['first_experience'])" v-for="framework in frameworks" :key="framework.id"></skill-card>
     </div>
     <div class="infrastructure">
       <p>infrastructure</p>
-      <skill-card :name="infrastructure['name']" :color="infrastructure['color']" :description="infrastructure['description']" v-for="infrastructure in infrastructures" :key="infrastructure.id"></skill-card>
+      <skill-card :name="infrastructure['name']" :color="infrastructure['color']" :description="infrastructure['description']" :date="calcWorkExperience(infrastructure['first_experience'])" v-for="infrastructure in infrastructures" :key="infrastructure.id"></skill-card>
     </div>
   </div>
 </template>
@@ -50,6 +50,13 @@
               self.infrastructures.push(response[index])
             }
           })
+      },
+      calcWorkExperience(start_experience_date) {
+        const startDate = new Date(start_experience_date);
+        const today = new Date();
+        const ms = today.getTime() - startDate.getTime();
+        const days = Math.floor(ms / (1000*60*60*24*30));
+        return days
       }
     }
   }

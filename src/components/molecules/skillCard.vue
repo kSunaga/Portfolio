@@ -3,6 +3,7 @@
     <div class="skill-card" :style="{border: `1px solid ${color}`}" @click="isShow = !isShow">
       <p class="skill-title" :style="{backgroundColor: color}">{{name}}</p>
       <div class="description" v-show="isShow">
+        <p>経験月数{{date}}ヶ月</p>
         <p>{{description}}</p>
       </div>
     </div>
@@ -14,7 +15,8 @@
     props: {
       name: String,
       description: String,
-      color: String
+      color: String,
+      date: String
     },
     data() {
       return {
