@@ -1,16 +1,20 @@
 <template>
   <div class="card">
-    <img class="card-img-top" src="../../assets/portfolio.png">
+    <img class="card-img-top" :src="image_url">
     <div class="card-body">
-      <a href="https://www.ksunaga-portfolio.com/"><h5>Portfolio</h5></a>
-      <p>テキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+      <a href="https://www.ksunaga-portfolio.com/"><h5>{{ title }}</h5></a>
+      <p>{{ description }}</p>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "productCard"
+    props: {
+      image_url: String,
+      title: String,
+      description: String
+    }
   }
 </script>
 
