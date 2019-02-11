@@ -4,7 +4,6 @@
     <p>詳細はクリックしてね！</p>
     <div class="cards">
       <div class="language">
-        <p>language</p>
         <skill-list></skill-list>
       </div>
     </div>

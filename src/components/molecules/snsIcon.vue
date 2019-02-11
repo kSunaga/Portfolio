@@ -1,6 +1,6 @@
 <template>
   <div class="sns">
-    <a href="https://twitter.com/ksunaga_"><img src="https://s3-ap-northeast-1.amazonaws.com/portfoli-image/facebook.png" class="twitter"></a>
+    <a href="https://twitter.com/ksunaga_"><img src="../../assets/twitter.svg" class="twitter"></a>
     <a href="https://github.com/kSunaga"><img src="../../assets/github.png" class="github"></a>
     <a href="https://www.facebook.com/profile.php?id=100014731847309"><img src="../../assets/facebook.png" class="facebook"></a>
   </div>

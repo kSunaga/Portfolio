@@ -1,31 +1,56 @@
 <template>
   <div class="card-box">
     <div class="language">
-      <skill-card name="ruby" color="pink" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
+      <p>language</p>
+      <skill-card :name="language['name']" :color="language['color']" :description="language['description']" v-for="language in languages" :key="language.id"></skill-card>
     </div>
-    <div class="infra">
+    <div class="framework">
       <p>framework</p>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
-      <skill-card name="ruby" color="red" description="テスト"></skill-card>
+      <skill-card :name="framework['name']" :color="framework['color']" :description="framework['description']" v-for="framework in frameworks" :key="framework.id"></skill-card>
+    </div>
+    <div class="infrastructure">
+      <p>infrastructure</p>
+      <skill-card :name="infrastructure['name']" :color="infrastructure['color']" :description="infrastructure['description']" v-for="infrastructure in infrastructures" :key="infrastructure.id"></skill-card>
     </div>
   </div>
 </template>
 
 <script>
   import skillCard from '../molecules/skillCard.vue'
+  import axios from 'axios'
 
   export default {
     components: {
       skillCard
+    },
+    data() {
+      return {
+        response: null,
+        languages: [],
+        frameworks: [],
+        infrastructures: []
+      }
+    },
+    mounted() {
+      axios.get('https://fierce-beyond-13003.herokuapp.com/languages')
+        .then(response => {
+          this.data = this.filterResponse(response.data)
+        })
+    },
+    methods: {
+      filterResponse(responses) {
+        const self = this
+        responses.forEach(function (val, index, response) {
+            if (response[index]['skill_id'] === 1) {
+              self.languages.push(response[index])
+
+            } else if (response[index]['skill_id'] === 2) {
+              self.frameworks.push(response[index])
+            } else {
+              self.infrastructures.push(response[index])
+            }
+          })
+      }
     }
   }
 </script>
@@ -33,16 +58,23 @@
 
 <style scoped>
 
+  p {
+    margin-top: 2%;
+  }
+
+  .infrastructure {
+    margin-bottom: 10%;
+  }
   /*.skill-card:hover {*/
-    /*height: 200px;*/
-    /*transition-delay: 0.5s;*/
+  /*height: 200px;*/
+  /*transition-delay: 0.5s;*/
   /*}*/
   /*.v-enter-active, .v-leave-active {*/
-    /*transition: all 3s;*/
+  /*transition: all 3s;*/
   /*}*/
 
   /*.v-enter, .v-leave-to {*/
-    /*opacity: 0;*/
-    /*transform: translateX(-60px);*/
+  /*opacity: 0;*/
+  /*transform: translateX(-60px);*/
   /*}*/
 </style>
