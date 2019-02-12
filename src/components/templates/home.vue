@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import snsIcon from './molecules/snsIcon.vue'
+  import snsIcon from '../molecules/snsIcon.vue'
   export default {
     components: {snsIcon}
   }

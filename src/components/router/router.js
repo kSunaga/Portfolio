@@ -1,4 +1,4 @@
-import Home from '../home.vue'
+import Home from '../templates/home.vue'
 import Skill from '../templates/skills.vue'
 import Product from '../templates/products.vue'
 import Contact from '../templates/contact.vue'

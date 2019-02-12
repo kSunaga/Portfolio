@@ -1,5 +1,8 @@
 <template>
-  <div class="card-box">
+  <div>
+    <p v-show="!loading">クリックすると詳細が表示されます。</p>
+    <loading v-show="loading"></loading>
+  <div class="card-box" v-show="!loading">
     <div class="language">
       <p>language</p>
       <skill-card :name="language['name']" :color="language['color']" :description="language['description']" :date="calcWorkExperience(language['first_experience'])" v-for="language in languages" :key="language.id"></skill-card>
@@ -13,28 +16,32 @@
       <skill-card :name="infrastructure['name']" :color="infrastructure['color']" :description="infrastructure['description']" :date="calcWorkExperience(infrastructure['first_experience'])" v-for="infrastructure in infrastructures" :key="infrastructure.id"></skill-card>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
   import skillCard from '../molecules/skillCard.vue'
+  import loading from '../atoms/loading.vue'
   import axios from 'axios'
 
   export default {
     components: {
-      skillCard
+      skillCard,
+      loading
     },
     data() {
       return {
-        response: null,
         languages: [],
         frameworks: [],
-        infrastructures: []
+        infrastructures: [],
+        loading: true
       }
     },
     mounted() {
-      axios.get('https://fierce-beyond-13003.herokuapp.com/languages')
+      axios.get('https://fierce-beyond-13003.herokuapp.com/api/v1/languages')
         .then(response => {
           this.data = this.filterResponse(response.data)
+          this.loading = false
         })
     },
     methods: {
@@ -67,21 +74,11 @@
 
   p {
     margin-top: 2%;
+    font-size: large;
   }
 
   .infrastructure {
     margin-bottom: 10%;
   }
-  /*.skill-card:hover {*/
-  /*height: 200px;*/
-  /*transition-delay: 0.5s;*/
-  /*}*/
-  /*.v-enter-active, .v-leave-active {*/
-  /*transition: all 3s;*/
-  /*}*/
 
-  /*.v-enter, .v-leave-to {*/
-  /*opacity: 0;*/
-  /*transform: translateX(-60px);*/
-  /*}*/
 </style>
