@@ -8,13 +8,17 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import titleLabel from './components/atoms/titleLabel.vue'
+import label from './components/atoms/label.vue'
+import primaryButton from './components/atoms/primary-button.vue'
 
 Vue.use(Bootstrap);
 Vue.use(VueRouter);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.component('title-label', titleLabel)
+Vue.component('title-label', titleLabel);
+Vue.component('label', label);
+Vue.component('primary-button', primaryButton);
 
 var router = new VueRouter({
   routes: routes
