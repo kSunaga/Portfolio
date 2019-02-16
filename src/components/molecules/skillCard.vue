@@ -5,6 +5,7 @@
       <div class="description" v-show="isShow">
         <p>経験月数{{date}}ヶ月</p>
         <p>{{description}}</p>
+        <p>詳細</p>
       </div>
     </div>
   </transition>
@@ -16,7 +17,7 @@
       name: String,
       description: String,
       color: String,
-      date: String
+      date: Number
     },
     data() {
       return {
@@ -37,7 +38,17 @@
   }
 
   .skill-title {
+    color: white;
     padding: 5px;
+  }
+
+  .v-enter-active, .v-leave-active {
+    transition: all 3s;
+  }
+
+  .v-enter, .v-leave-to {
+    opacity: 0;
+    transform: translateX(-60px);
   }
 
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <title-label name="Skill一覧"></title-label>
-    <p>詳細はクリックしてね！</p>
     <div class="cards">
       <div class="language">
         <skill-list></skill-list>
