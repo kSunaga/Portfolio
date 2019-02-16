@@ -47,6 +47,7 @@ export default [
   },
   {
     path: '/admin/product/edit/:id',
+    name: 'productEdit',
     component: AdminEditProduct, meta: { requiresAuth: true }
   },
   {
@@ -63,6 +64,7 @@ export default [
   },
   {
     path: '/admin/skill/edit/:id',
+    name: 'skillEdit',
     component: AdminEditSkill, meta: { requiresAuth: true }
   }
 ]

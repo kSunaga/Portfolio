@@ -33,7 +33,6 @@ new Vue({
 }).$mount('#app');
 
 router.beforeEach((to, from, next) =>{
-  console.log(`is_cookii${$cookies.isKey('is_tru')}`);
   if (to.matched.some(record => record.meta.requiresAuth)) {
     auth()
     if(isKey()) {
@@ -54,12 +53,12 @@ function auth() {
     user_id: $cookies.get('user_id'),
     access_token: $cookies.get('access_token')
   }).then( res => {
-    $cookies.set('is_tru', 'true');
+    $cookies.set('is_true', 'true');
   })
 }
 
 function isKey() {
-  return !$cookies.isKey('is_tru')
+  return !$cookies.isKey('is_true')
 }
 
 
