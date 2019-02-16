@@ -4,23 +4,23 @@
     <p v-show="update_flag"> {{ update_flag }}</p>
     <p>product編集画面</p>
     <div class="form-group">
-      <label name="title"></label>
+      <label>title</label>
       <input type="text" class="form-control" v-model="title">
     </div>
     <div class="form-group">
-      <label name="body"></label>
+      <label>body</label>
       <textarea v-model="body"></textarea>
     </div>
     <div class="form-group">
-      <label name="description"></label>
+      <label>description</label>
       <textarea v-model="description"></textarea>
     </div>
     <div class="form-group">
-      <label name="url"></label>
+      <label>url</label>
       <input type="text" class="form-control" v-model="url">
     </div>
     <div class="form-group">
-      <label name="image_url"></label>
+      <label>image_url</label>
       <input type="text" class="form-control" v-model="image_url">
     </div>
     <input type="button" @click="edit" value="送信">
@@ -69,5 +69,8 @@
 <style scoped>
 textarea {
   width: 100%;
+}
+label {
+  font-weight: bold;
 }
 </style>

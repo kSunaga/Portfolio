@@ -3,16 +3,16 @@
     <router-link to="/admin/skills"><button class="btn btn-primary">戻る</button></router-link>
     <p v-show="message">{{ message }}</p>
     <div class="form-group">
-      <label name="name"></label>
-      <input type="text" v-model="name">
+      <label>name</label>
+      <input type="text" v-model="name" class="form-control">
     </div>
     <div class="form-group">
-      <label name="description"/>
-      <textarea v-model="description"></textarea>
+      <label>description</label>
+      <textarea v-model="description" class="form-control"></textarea>
     </div>
     <div class="form-group">
-      <label name="color"/>
-      <input type="text" v-model="color">
+      <label>color</label>
+      <input type="text" v-model="color" class="form-control">
     </div>
     <input type="button" @click="edit" value="送信">
   </div>
@@ -52,5 +52,7 @@
 </script>
 
 <style scoped>
-
+label {
+  font-weight: bold;
+}
 </style>
