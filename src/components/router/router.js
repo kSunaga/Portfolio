@@ -1,6 +1,8 @@
 import Home from '../templates/home.vue'
-import Skill from '../templates/skills.vue'
-import Product from '../templates/products.vue'
+import Skill from '../templates/skills/skills.vue'
+import SkillShow from '../templates/skills/skillShow.vue'
+import ProductShow from '../templates/products/productShow.vue'
+import Product from '../templates/products/products.vue'
 import Contact from '../templates/contact.vue'
 
 export default [
@@ -19,5 +21,15 @@ export default [
   {
     path: '/contact',
     component: Contact
+  },
+  {
+    path: 'skills/:id',
+    name: 'skill',
+    component: SkillShow
+  },
+  {
+    path: 'products/:id',
+    name: 'product',
+    component: ProductShow
   }
 ]
