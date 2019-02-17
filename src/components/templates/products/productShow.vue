@@ -1,12 +1,21 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <p>{{ body }}</p>
-    <p>{{ description }}</p>
-    <p>{{ url }}</p>
-    <p>{{ image_url }}</p>
-    <p>使用言語</p>
-    <p v-for="language in languages" :key="language.id">{{ language['name'] }}</p>
+    <div class="show">
+      <h1>{{ title }}</h1>
+      <div>
+        <img :src="image_url">
+      </div>
+      <div>
+        <p>{{ description }}</p>
+      </div>
+      <div>
+        <p>{{ body }}</p>
+      </div>
+      <p>使用技術</p>
+      <div class="languages">
+        <p class="language" v-for="language in languages" :key="language.id" :style="{border: `1px solid ${language.color}`}"> <router-link :to="{ name: 'skill', params: { id: language['langugage_id'] }}">{{ language['name'] }}</router-link></p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,5 +49,21 @@
 </script>
 
 <style scoped>
+
+  .show {
+    text-align: center;
+  }
+
+  img {
+    width: 30%;
+    height: auto;
+  }
+
+  .language {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+  }
 
 </style>

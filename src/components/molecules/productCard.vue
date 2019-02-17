@@ -6,7 +6,7 @@
         <a :href="url"><h5>{{ title }}</h5></a>
         <p>{{ description }}</p>
       </div>
-      <router-link :to="{ name: 'product', params: { id: id}}">詳細</router-link>
+      <div class="show"><router-link :to="{ name: 'product', params: { id: id}}">詳細</router-link></div>
     </div>
   </transition>
 </template>
@@ -36,5 +36,9 @@
   .v-enter, .v-leave-to {
     opacity: 0;
     transform: translateY(-60px);
+  }
+
+  .show {
+    text-align: center;
   }
 </style>
