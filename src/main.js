@@ -35,7 +35,7 @@ new Vue({
 router.beforeEach((to, from, next) =>{
   if (to.matched.some(record => record.meta.requiresAuth)) {
     auth()
-    if(isKey()) {
+    if(!isKey()) {
       next({
         path: '/login',
         query: { redirect: to.fullPath}
