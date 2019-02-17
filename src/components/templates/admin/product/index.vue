@@ -26,7 +26,6 @@
     mounted() {
       axios.get(`${process.env.VUE_APP_API_BASE_URL}/products`)
         .then(response => {
-          console.log(response)
           this.products = response.data
         })
     }
