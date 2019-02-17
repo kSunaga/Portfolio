@@ -30,7 +30,6 @@
           password: this.password
         })
           .then(function (response) {
-            console.log(response)
             self.$cookies.set('user_id', response.data.id)
             self.$cookies.set('access_token', response.data.auth_token)
             self.$router.push( '/admin/skills')

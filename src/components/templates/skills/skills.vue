@@ -10,12 +10,17 @@
 </template>
 
 <script>
-  import skillList from '../organisms/skillList.vue'
+  import skillList from '../../organisms/skillList.vue'
 
 
   export default {
     components: {
       skillList
+    },
+    data() {
+      return {
+        da: process.env.VUE_APP_API_BASE_URL
+      }
     }
   }
 </script>
@@ -28,5 +33,6 @@
 
   p {
     text-align: center;
+    color: black;
   }
 </style>

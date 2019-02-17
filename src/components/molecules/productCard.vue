@@ -6,6 +6,7 @@
         <a :href="url"><h5>{{ title }}</h5></a>
         <p>{{ description }}</p>
       </div>
+      <div class="show"><router-link :to="{ name: 'product', params: { id: id}}">詳細</router-link></div>
     </div>
   </transition>
 </template>
@@ -13,6 +14,7 @@
 <script>
   export default {
     props: {
+      id: Number,
       image_url: String,
       title: String,
       description: String,
@@ -34,5 +36,9 @@
   .v-enter, .v-leave-to {
     opacity: 0;
     transform: translateY(-60px);
+  }
+
+  .show {
+    text-align: center;
   }
 </style>

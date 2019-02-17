@@ -6,9 +6,9 @@
     </div>
     <div class="link col-4">
       <p><router-link to="/">Home</router-link></p>
-      <p><router-link to="skills">Skills</router-link></p>
-      <p><router-link to="products">Products</router-link></p>
-      <p><router-link to="contact">Contact</router-link></p>
+      <p><router-link to="/skills">Skills</router-link></p>
+      <p><router-link to="/products">Products</router-link></p>
+      <p><router-link to="/contact">Contact</router-link></p>
     </div>
   </header>
 </template>

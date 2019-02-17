@@ -5,7 +5,7 @@
       <div class="description" v-show="isShow">
         <p>経験月数{{date}}ヶ月</p>
         <p>{{description}}</p>
-        <p>詳細</p>
+        <router-link :to="{ name: 'skill', params: {id: id}}">詳細</router-link>
       </div>
     </div>
   </transition>
@@ -14,6 +14,7 @@
 <script>
   export default {
     props: {
+      id: Number,
       name: String,
       description: String,
       color: String,
