@@ -58,10 +58,8 @@
           body: this.body,
           description: this.description,
           image_url: this.image_url
-        }).then(res => {
-          this.update_flag = '成功しました。'
-        })
-      }
+        }).then( () => { this.update_flag = '成功しました。'}
+        )}
     }
   }
 </script>

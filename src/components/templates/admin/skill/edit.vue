@@ -45,7 +45,7 @@
           name: this.name,
           description: this.description,
           color: this.color
-        }).then(res => { this.message = '成功しました。'})
+        }).then(() => { this.message = '成功しました。'})
       }
     }
   }

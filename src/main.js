@@ -52,13 +52,13 @@ function auth() {
   return axios.post('https://fierce-beyond-13003.herokuapp.com/api/v1/authenticate', {
     user_id: $cookies.get('user_id'),
     access_token: $cookies.get('access_token')
-  }).then( res => {
+  }).then( () => {
     $cookies.set('is_true', 'true');
   })
 }
 
 function isKey() {
-  return !$cookies.isKey('is_true')
+  return $cookies.isKey('is_true')
 }
 
 
