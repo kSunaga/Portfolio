@@ -1,29 +1,31 @@
 <template>
   <div>
-    <router-link to="/admin/products"><button class="btn btn-primary">戻る</button></router-link>
+    <p class="back"><router-link to="/admin/products" class="back btn btn-primary">戻る</router-link></p>
     <p v-show="update_flag"> {{ update_flag }}</p>
-    <p>product編集画面</p>
-    <div class="form-group">
-      <label>title</label>
-      <input type="text" class="form-control" v-model="title">
+    <div class="body">
+      <h1>編集画面</h1>
+      <div class="form-group">
+        <label>title</label>
+        <input type="text" class="form-control" v-model="title">
+      </div>
+      <div class="form-group">
+        <label>body</label>
+        <textarea v-model="body"></textarea>
+      </div>
+      <div class="form-group">
+        <label>description</label>
+        <textarea v-model="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>url</label>
+        <input type="text" class="form-control" v-model="url">
+      </div>
+      <div class="form-group">
+        <label>image_url</label>
+        <input type="text" class="form-control" v-model="image_url">
+      </div>
+      <input class="btn btn-primary" style="margin-top: 15px" type="button" @click="edit" value="送信">
     </div>
-    <div class="form-group">
-      <label>body</label>
-      <textarea v-model="body"></textarea>
-    </div>
-    <div class="form-group">
-      <label>description</label>
-      <textarea v-model="description"></textarea>
-    </div>
-    <div class="form-group">
-      <label>url</label>
-      <input type="text" class="form-control" v-model="url">
-    </div>
-    <div class="form-group">
-      <label>image_url</label>
-      <input type="text" class="form-control" v-model="image_url">
-    </div>
-    <input type="button" @click="edit" value="送信">
   </div>
 </template>
 
@@ -65,10 +67,22 @@
 </script>
 
 <style scoped>
-textarea {
-  width: 100%;
-}
-label {
-  font-weight: bold;
-}
+  textarea {
+    width: 100%;
+  }
+  label {
+    font-weight: bold;
+  }
+  .back {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .body {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .form-group {
+    margin-top: 4%;
+  }
 </style>
