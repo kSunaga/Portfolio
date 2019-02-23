@@ -3,7 +3,8 @@
     <div class="skill-card" :style="{border: `1px solid ${color}`}" @click="isShow = !isShow">
       <p class="skill-title" :style="{backgroundColor: color}">{{name}}</p>
       <div class="description" v-show="isShow">
-        <p>経験月数{{date}}ヶ月</p>
+        <span>実務経験</span>
+        <Experience :experience="date"></Experience>
         <p>{{description}}</p>
         <router-link :to="{ name: 'skill', params: {id: id}}">詳細</router-link>
       </div>
@@ -12,13 +13,16 @@
 </template>
 
 <script>
+  import Experience from '../atoms/experienceLabel'
+
   export default {
+    components: {Experience},
     props: {
       id: Number,
       name: String,
       description: String,
       color: String,
-      date: Number
+      date: String
     },
     data() {
       return {

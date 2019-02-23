@@ -5,10 +5,7 @@
       <div>
         <img :src="image_url">
       </div>
-      <div>
-        <p>{{ description }}</p>
-      </div>
-      <div>
+      <div class="body">
         <p>{{ body }}</p>
       </div>
       <p>使用技術</p>
@@ -50,6 +47,10 @@
 
 <style scoped>
 
+  h1 {
+    margin: 2% 0;
+  }
+
   .show {
     text-align: center;
   }
@@ -57,6 +58,13 @@
   img {
     width: 30%;
     height: auto;
+  }
+
+  .body {
+    padding: 4% 0;
+    width: 45%;
+    margin: 0 auto;
+
   }
 
   .language {

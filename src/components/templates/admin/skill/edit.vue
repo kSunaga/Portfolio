@@ -1,20 +1,22 @@
 <template>
-  <div>
-    <router-link to="/admin/skills"><button class="btn btn-primary">戻る</button></router-link>
+  <div class="edit">
     <p v-show="message">{{ message }}</p>
     <div class="form-group">
-      <label>name</label>
+      <p>name</p>
       <input type="text" v-model="name" class="form-control">
     </div>
     <div class="form-group">
-      <label>description</label>
+      <p>description</p>
       <textarea v-model="description" class="form-control"></textarea>
     </div>
     <div class="form-group">
-      <label>color</label>
+      <p>color</p>
       <input type="text" v-model="color" class="form-control">
     </div>
-    <input type="button" @click="edit" value="送信">
+    <div class="button">
+      <input type="button" class="btn btn-primary" @click="edit" value="送信">
+      <router-link to="/admin/skills"><button class="btn btn-primary ml-5">戻る</button></router-link>
+    </div>
   </div>
 </template>
 
@@ -52,7 +54,19 @@
 </script>
 
 <style scoped>
-label {
-  font-weight: bold;
-}
+  p {
+    font-weight: bold;
+    text-align: center;
+  }
+  .edit {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+  .button {
+    text-align: center;
+  }
+  .form-group {
+    margin: 4% 0;
+  }
 </style>

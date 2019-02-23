@@ -10,7 +10,7 @@
       </div>
       <div class="clip">
         <label>実務経験</label>
-        <p>{{ first_experience }}</p>
+        <experience-label :experience="first_experience"></experience-label>
       </div>
       <div class="clip">
         <div>
@@ -27,8 +27,11 @@
 
 <script>
   import axios from 'axios'
+  import ExperienceLabel from '../../atoms/experienceLabel.vue'
 
   export default {
+
+    components: { ExperienceLabel },
     data() {
       return {
         name: '',
@@ -70,13 +73,10 @@
     font-weight: bold;
   }
 
-  .info {
-    margin-top: 5%;
-  }
-
   .clip {
     width: 50%;
     margin: 0 auto;
+    padding: 2% 0;
     border-bottom: 1px solid lightgrey;
   }
 

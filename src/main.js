@@ -50,14 +50,18 @@ router.beforeEach((to, from, next) =>{
 
 function auth() {
   return axios.post('https://fierce-beyond-13003.herokuapp.com/api/v1/authenticate', {
+    // eslint-disable-next-line
     user_id: $cookies.get('user_id'),
+    // eslint-disable-next-line
     access_token: $cookies.get('access_token')
   }).then( () => {
+    // eslint-disable-next-line
     $cookies.set('is_true', 'true');
   })
 }
 
 function isKey() {
+  // eslint-disable-next-line
   return $cookies.isKey('is_true')
 }
 
