@@ -5,15 +5,15 @@
   <div class="card-box" v-show="!loading">
     <div class="language">
       <p>language</p>
-      <skill-card :id="language['id']" :name="language['name']" :color="language['color']" :description="language['description']" :date="calcWorkExperience(language['first_experience'])" v-for="language in languages" :key="language.id"></skill-card>
+      <skill-card :id="language['id']" :name="language['name']" :color="language['color']" :description="language['description']" :date="language['first_experience']" v-for="language in languages" :key="language.id"></skill-card>
     </div>
     <div class="framework">
       <p>framework</p>
-      <skill-card :id="framework['id']" :name="framework['name']" :color="framework['color']" :description="framework['description']" :date="calcWorkExperience(framework['first_experience'])" v-for="framework in frameworks" :key="framework.id"></skill-card>
+      <skill-card :id="framework['id']" :name="framework['name']" :color="framework['color']" :description="framework['description']" :date="framework['first_experience']" v-for="framework in frameworks" :key="framework.id"></skill-card>
     </div>
     <div class="infrastructure">
       <p>infrastructure</p>
-      <skill-card :id="infrastructure['id']" :name="infrastructure['name']" :color="infrastructure['color']" :description="infrastructure['description']" :date="calcWorkExperience(infrastructure['first_experience'])" v-for="infrastructure in infrastructures" :key="infrastructure.id"></skill-card>
+      <skill-card :id="infrastructure['id']" :name="infrastructure['name']" :color="infrastructure['color']" :description="infrastructure['description']" :date="infrastructure['first_experience']" v-for="infrastructure in infrastructures" :key="infrastructure.id"></skill-card>
     </div>
   </div>
   </div>
@@ -57,13 +57,6 @@
               self.infrastructures.push(response[index])
             }
           })
-      },
-      calcWorkExperience(start_experience_date) {
-        const startDate = new Date(start_experience_date);
-        const today = new Date();
-        const ms = today.getTime() - startDate.getTime();
-        const days = Math.floor(ms / (1000*60*60*24*30));
-        return days
       }
     }
   }

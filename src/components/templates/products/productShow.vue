@@ -6,9 +6,6 @@
         <img :src="image_url">
       </div>
       <div>
-        <p>{{ description }}</p>
-      </div>
-      <div>
         <p>{{ body }}</p>
       </div>
       <p>使用技術</p>
