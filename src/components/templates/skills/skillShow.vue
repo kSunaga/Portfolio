@@ -73,13 +73,10 @@
     font-weight: bold;
   }
 
-  .info {
-    margin-top: 5%;
-  }
-
   .clip {
     width: 50%;
     margin: 0 auto;
+    padding: 2% 0;
     border-bottom: 1px solid lightgrey;
   }
 
