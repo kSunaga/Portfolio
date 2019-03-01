@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p class="back"><router-link to="/admin/products" class="back btn btn-primary">戻る</router-link></p>
+    <p class="back">
+      <router-link to="/admin/products" class="back btn btn-primary">戻る</router-link>
+    </p>
     <p v-show="update_flag"> {{ update_flag }}</p>
     <div class="body">
       <h1>編集画面</h1>
@@ -24,7 +26,14 @@
         <label>image_url</label>
         <input type="text" class="form-control" v-model="image_url">
       </div>
-      <input class="btn btn-primary" style="margin-top: 15px" type="button" @click="edit" value="送信">
+      <div class="form-group">
+        <p>languages</p>
+        <div class="language" v-for="language in languages" :key="language.id">
+          <span>{{ language.name }}</span>
+          <input type="checkbox" :id="language.name" :value="language.id" :checked="filterIds(product_languages).includes(language.id)">
+        </div>
+      </div>
+      <input class="push btn btn-primary" style="margin-top: 15px" type="button" @click="edit" value="送信">
     </div>
   </div>
 </template>
@@ -40,18 +49,14 @@
         description: '',
         url: '',
         image_url: '',
-        update_flag: ''
+        update_flag: '',
+        languages: [],
+        product_languages: []
       }
     },
     mounted() {
-      axios.get(`${process.env.VUE_APP_API_BASE_URL}/products/${this.$route.params.id}`)
-        .then(response => {
-          this.title = response.data.title,
-            this.url = response.data.url,
-            this.body = response.data.body,
-            this.description = response.data.description,
-            this.image_url = response.data.image_url
-        })
+      this.getProduct()
+      this.getLanguages()
     },
     methods: {
       edit() {
@@ -60,9 +65,37 @@
           body: this.body,
           description: this.description,
           image_url: this.image_url,
+          // eslint-disable-next-line
           access_token: $cookies.get('access_token')
-        }).then( () => { this.update_flag = '成功しました。'}
-        )}
+        }).then(() => {
+            this.update_flag = '成功しました。'
+          }
+        )
+      },
+      getLanguages() {
+        axios.get(`${process.env.VUE_APP_API_BASE_URL}/languages`)
+          .then(response => {
+            this.languages = response.data
+          })
+      },
+      getProduct() {
+        axios.get(`${process.env.VUE_APP_API_BASE_URL}/products/${this.$route.params.id}`)
+          .then(response => {
+            this.title = response.data.title,
+              this.url = response.data.url,
+              this.body = response.data.body,
+              this.description = response.data.description,
+              this.image_url = response.data.image_url,
+              this.product_languages = response.data.product_languages
+          })
+      },
+      filterIds(product_languages) {
+        let ids = [];
+        product_languages.forEach(language => {
+          ids.push(language.langugage_id)
+        });
+        return ids
+      }
     }
   }
 </script>
@@ -71,19 +104,32 @@
   textarea {
     width: 100%;
   }
+
   label {
     font-weight: bold;
   }
+
   .back {
     text-align: center;
     margin-top: 15px;
   }
+
   .body {
     width: 70%;
     margin: 0 auto;
     text-align: center;
   }
+
   .form-group {
     margin-top: 4%;
+  }
+
+  .language {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  .push {
+    margin-bottom: 10%;
   }
 </style>

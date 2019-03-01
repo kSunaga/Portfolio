@@ -13,9 +13,17 @@
       <p>color</p>
       <input type="text" v-model="color" class="form-control">
     </div>
+    <div class="form-group">
+      <div v-for="product in products" :key="product.id">
+        <p>{{ product.title }}</p>
+        <input type="checkbox" :value="product.id" :checked="filterProductId(product_languages).includes(product.id)">
+      </div>
+    </div>
     <div class="button">
       <input type="button" class="btn btn-primary" @click="edit" value="送信">
-      <router-link to="/admin/skills"><button class="btn btn-primary ml-5">戻る</button></router-link>
+      <router-link to="/admin/skills">
+        <button class="btn btn-primary ml-5">戻る</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -29,17 +37,14 @@
         name: '',
         description: '',
         color: '',
-        message: ''
+        message: '',
+        product_languages: [],
+        products: []
       }
     },
     mounted() {
-      axios.get(`${process.env.VUE_APP_API_BASE_URL}/languages/${this.$route.params.id}`)
-        .then(res => {
-            this.name = res.data.name,
-              this.description = res.data.description,
-              this.color = res.data.color
-          }
-        )
+      this.getProducts();
+      this.getLanguage();
     },
     methods: {
       edit() {
@@ -47,8 +52,34 @@
           name: this.name,
           description: this.description,
           color: this.color,
+          // eslint-disable-next-line
           access_token: $cookies.get('access_token')
-        }).then(() => { this.message = '成功しました。'})
+        }).then(() => {
+          this.message = '成功しました。'
+        })
+      },
+      getProducts() {
+        axios.get(`${process.env.VUE_APP_API_BASE_URL}/products`)
+          .then(response => {
+            this.products = response.data
+          })
+      },
+      getLanguage() {
+        axios.get(`${process.env.VUE_APP_API_BASE_URL}/languages/${this.$route.params.id}`)
+          .then(res => {
+              this.product_languages = res.data.product_languages,
+                this.name = res.data.name,
+                this.description = res.data.description,
+                this.color = res.data.color
+            }
+          )
+      },
+      filterProductId(languages) {
+        let ids = [];
+        languages.forEach(language => {
+          ids.push(language.product_id)
+        });
+        return ids;
       }
     }
   }
@@ -59,14 +90,17 @@
     font-weight: bold;
     text-align: center;
   }
+
   .edit {
     width: 70%;
     margin: 0 auto;
     margin-top: 5%;
   }
+
   .button {
     text-align: center;
   }
+
   .form-group {
     margin: 4% 0;
   }
