@@ -59,7 +59,8 @@
           title: this.title,
           body: this.body,
           description: this.description,
-          image_url: this.image_url
+          image_url: this.image_url,
+          access_token: $cookies.get('access_token')
         }).then( () => { this.update_flag = '成功しました。'}
         )}
     }

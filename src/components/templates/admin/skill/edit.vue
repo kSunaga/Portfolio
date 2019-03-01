@@ -46,7 +46,8 @@
         axios.put(`${process.env.VUE_APP_API_BASE_URL}/languages/${this.$route.params.id}`, {
           name: this.name,
           description: this.description,
-          color: this.color
+          color: this.color,
+          access_token: $cookies.get('access_token')
         }).then(() => { this.message = '成功しました。'})
       }
     }
