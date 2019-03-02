@@ -1,6 +1,7 @@
 <template>
   <div class="product">
     <router-link to="/admin/skills"><button class="btn btn-primary" style="margin-top: 15px">スキルに移動</button></router-link>
+    <router-link to="/admin/product/new"><button class="btn btn-primary" style="margin-top: 15px">新規作成</button></router-link>
     <div v-for="product in products" :key="product.id" class="products">
       <div class="h1">
         <h1>{{ product['title'] }}</h1>
