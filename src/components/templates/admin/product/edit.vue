@@ -92,7 +92,7 @@
       filterIds(product_languages) {
         let ids = [];
         product_languages.forEach(language => {
-          ids.push(language.langugage_id)
+          ids.push(language.language_id)
         });
         return ids
       }
