@@ -2,6 +2,7 @@
   <div>
     <div class="back-product">
       <router-link to="/admin/products"><button class="btn btn-primary">プロダクトに移動</button></router-link>
+      <router-link to="/admin/skill/new"><button class="btn btn-primary" style="margin-top: 15px">新規作成</button></router-link>
     </div>
     <div v-for="language in languages" :key="language.id">
       <h1>{{ language['name'] }}</h1>

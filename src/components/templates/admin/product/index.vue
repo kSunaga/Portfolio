@@ -1,6 +1,7 @@
 <template>
   <div class="product">
     <router-link to="/admin/skills"><button class="btn btn-primary" style="margin-top: 15px">スキルに移動</button></router-link>
+    <router-link to="/admin/product/new"><button class="btn btn-primary" style="margin-top: 15px">新規作成</button></router-link>
     <div v-for="product in products" :key="product.id" class="products">
       <div class="h1">
         <h1>{{ product['title'] }}</h1>
@@ -23,7 +24,7 @@
       </div>
       <div class="skills form">
         <p class="bold">使われている言語</p>
-        <p v-for="language in product['product_languages']" :key="language.id">{{ language['name']}}</p>
+        <p v-for="language in product['product_languages']" :key="language.id" class="language" :style="{color: language.color}">{{ isLanguage(language['name']) }}</p>
       </div>
       <div class="form">
         <router-link :to="{ name: 'productEdit', params: { id: product['id'] }}" class="btn btn-primary">編集</router-link>
@@ -46,6 +47,11 @@
         .then(response => {
           this.products = response.data
         })
+    },
+    methods: {
+      isLanguage(language) {
+        return language.length === 0 ? "なし" : language;
+      }
     }
   }
 </script>
@@ -69,5 +75,9 @@
   .body {
     width: 50%;
     margin: 0 auto;
+  }
+  .language {
+    display: inline-block;
+    margin-left: 15px;
   }
 </style>
