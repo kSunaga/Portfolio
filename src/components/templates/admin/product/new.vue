@@ -56,8 +56,8 @@
           image_url: this.image_url,
           // eslint-disable-next-line
           access_token: $cookies.get('access_token')
-        }).then(() => {
-            this.update_flag = '成功しました。'
+        }).then((response) => {
+            this.update_flag = response.data.message
           }
         )
       }

@@ -54,8 +54,8 @@
           color: this.color,
           // eslint-disable-next-line
           access_token: $cookies.get('access_token')
-        }).then(() => {
-          this.message = '成功しました。'
+        }).then((response) => {
+          this.message = response.data.message
         })
       },
       getProducts() {
@@ -93,8 +93,7 @@
 
   .edit {
     width: 70%;
-    margin: 0 auto;
-    margin-top: 5%;
+    margin: 3% auto;
   }
 
   .button {
