@@ -34,7 +34,6 @@
     mounted() {
       axios.get(`${process.env.VUE_APP_API_BASE_URL}/products/${this.$route.params.id}`)
         .then(response => {
-          console.log(response);
           this.title = response.data.title;
           this.body = response.data.body;
           this.description = response.data.description;
