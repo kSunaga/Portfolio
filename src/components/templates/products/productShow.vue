@@ -10,7 +10,7 @@
       </div>
       <p>使用技術</p>
       <div class="languages">
-        <p class="language" v-for="language in languages" :key="language.id" :style="{border: `1px solid ${language.color}`}"> <router-link :to="{ name: 'skill', params: { id: language['langugage_id'] }}">{{ language['name'] }}</router-link></p>
+        <p class="language" v-for="language in languages" :key="language.id" :style="{border: `1px solid ${language.color}`}"> <router-link :to="{ name: 'skill', params: { id: language.language_id }}">{{ language['name'] }}</router-link></p>
       </div>
     </div>
   </div>
@@ -34,6 +34,7 @@
     mounted() {
       axios.get(`${process.env.VUE_APP_API_BASE_URL}/products/${this.$route.params.id}`)
         .then(response => {
+          console.log(response);
           this.title = response.data.title;
           this.body = response.data.body;
           this.description = response.data.description;
