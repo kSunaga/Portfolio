@@ -1,29 +1,18 @@
-# new-portfolio
+# Portfolio
+kSunagaのポートフォリオサイト
 
-## Project setup
-```
-yarn install
-```
+URL: https://www.ksunaga-portfolio.com/
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+<img width="1680" alt="スクリーンショット 2019-05-13 21 18 02" src="https://user-images.githubusercontent.com/24542867/57620819-dccd6980-75c4-11e9-8e76-91cebad095e3.png">
 
-### Run your tests
-```
-yarn run test
-```
+使用技術
 
-### Lints and fixes files
-```
-yarn run lint
-```
+サーバーサイド
+- heroku
+- Ruby on Rails 
+- AWS S3
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+フロントサイド
+- Vue.js
+- bootstrap
